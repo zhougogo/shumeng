@@ -130,10 +130,13 @@
 
 	<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
-	<script>
+	<script type="text/javascript">
  		var conHeight = $(window).height();//获取手机设备的高度
  	
+ 		console.log(conHeight);
  		$('.page .content').height(conHeight);
+ 		
+ 		console.log($('.page .content .bg').height());
 		
 		var audio = document.getElementById('audio');
 		
