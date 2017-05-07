@@ -145,6 +145,19 @@
 		
 		var music = document.getElementById('music');
 		
+		function audioAutoPlay(id){  
+		    var audio = document.getElementById(id);  
+		    audio.play();  
+		    document.addEventListener("WeixinJSBridgeReady", function () {  
+		        audio.play();  
+		    }, false);  
+		    document.addEventListener('YixinJSBridgeReady', function() {  
+		        audio.play();  
+		    }, false);  
+		}  
+		audioAutoPlay('audio');  
+
+		
 		window.onload = function(){
 			audio.play();
 //			alert('ok')
