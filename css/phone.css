@@ -43,7 +43,7 @@ img{
 .page .content .logo{
 	width: 24%;
 	position: absolute;
-	top: 5%;
+	top: 4%;
 	left: 0;
 	right: 0;
 	margin: auto;
@@ -118,7 +118,8 @@ form div input,form div select{
 	line-height: 8vw;
 	/*color: white;*/
 	background-color:#c0daf1;
-	color: grey;
+	color: white;
+	font-size: 5vw;
 	
 }
 form div input{
@@ -133,9 +134,12 @@ form div select{
 	appearance:none;
 	-moz-appearance:none;
 	-webkit-appearance:none;
-	color: #778197;
+	/*color: #778197;*/
 	font-size: 4vw;
 	font-weight: bold;
+}
+input select{
+	color: white;
 }
 .submit{
 	position: relative;
