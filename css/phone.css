@@ -82,7 +82,7 @@ form{
 	left: 0;
 	right: 0;
 	margin: auto;
-	top: 20%;
+	top: 18%;
 }
 form div{
 	width: 100%;
@@ -128,7 +128,7 @@ form div select{
 .submit{
 	position: relative;
 	width: 36%;
-	margin: 16% auto;
+	margin: 10% auto;
 }
 .submit .label{
 	width: 70%;
