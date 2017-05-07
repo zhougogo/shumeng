@@ -18,36 +18,37 @@
 		<div class="page">
 			<div class="content">
 				<div class="bg">
-					<img src="img/bg.png"/>
+					<img src="img/bg.png" />
 				</div>
 				<audio id="audio" class="audio" autoplay="autoplay" preload loop="loop">
 					<source src="X-Ray Dog - Flight Of Dreams.mp3"></source>
-				</audio>  
+				</audio>
 				<div class="yinyue">
-					<img id="music" src="img/yinyue.png"/>
+					<img id="music" src="img/yinyue.png" />
 				</div>
 				<form action="" method="post">
 					<!--{{ csrf_field() }}-->
 
 					<div class="font">
 						<span>姓&nbsp;&nbsp;名:</span>
-						<input type="text" name="name" id="name"/>
-						
+						<input type="text" name="name" id="name" />
+
 					</div>
 					<div class="font">
 						<span>单&nbsp;&nbsp;位:</span>
-						<input type="text" name="company" id="company"/>
-					</div>				
+						<input type="text" name="company" id="company" />
+					</div>
 					<div class="font">
 						<span>职&nbsp;&nbsp;务:</span>
-						<input type="text" name="job" id="job"/>
-					</div>				<div>
+						<input type="text" name="job" id="job" />
+					</div>
+					<div>
 						<span>手机号码:</span>
-						<input type="text" name="phone" id="phone"/>
-					</div>				
+						<input type="text" name="phone" id="phone" />
+					</div>
 					<div class="font">
 						<span>邮&nbsp;&nbsp;箱:</span>
-						<input type="text" name="email" id="email"/>
+						<input type="text" name="email" id="email" />
 					</div>
 					<div class="">
 						<span>所属省份:</span>
@@ -114,16 +115,16 @@
 							<option value="其他">其他</option>
 						</select>
 					</div>
-					<div  class="submit">
+					<div class="submit">
 						<label for="submitBtm"><img src="img/tjBtm_03.png"/></label>
-						<input id="submitBtm" type="submit" value="提交"/>
+						<input id="submitBtm" type="submit" value="提交" />
 					</div>
 				</form>
 			</div>
 			<div class="popup hidden">
 				<div class="popupcontent">
-					<img src="img/content.png"/>
-					<img src="img/closeBtm.png"/>
+					<img src="img/content.png" />
+					<img src="img/closeBtm.png" />
 				</div>
 			</div>
 		</div>
@@ -133,81 +134,78 @@
 	<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
- 		var conHeight = $(window).height();//获取手机设备的高度
- 	
- 		console.log(conHeight);
-// 		$('.page .content').height(conHeight);
-// 		$('.page .content .bg img').height(conHeight);
- 		
- 		console.log($('.page .content .bg').height());
-		
+		var conHeight = $(window).height(); //获取手机设备的高度
+
+		console.log(conHeight);
+		// 		$('.page .content').height(conHeight);
+		// 		$('.page .content .bg img').height(conHeight);
+
+		console.log($('.page .content').height());
+
 		var audio = document.getElementById('audio');
-		
+
 		var music = document.getElementById('music');
 		
-		function audioAutoPlay(id){  
-		    var audio = document.getElementById(id);  
-		    audio.play();  
-		    document.addEventListener("WeixinJSBridgeReady", function () {  
-		        audio.play();  
-		    }, false);  
-		    document.addEventListener('YixinJSBridgeReady', function() {  
-		        audio.play();  
-		    }, false);  
-		}  
-		audioAutoPlay('audio');  
 
-		
-		window.onload = function(){
+		function audioAutoPlay(id) {
+			var audio = document.getElementById(id),
+				play = function() {
+					audio.play();
+					document.removeEventListener("touchstart", play, false);
+				};
 			audio.play();
-//			alert('ok')
+			document.addEventListener("WeixinJSBridgeReady", function() {
+				play();
+			}, false);
+			document.addEventListener('YixinJSBridgeReady', function() {
+				play();
+			}, false);
+			document.addEventListener("touchstart", play, false);
 		}
-		
-		if(audio.play){
-			
-				alert('ok');
-				
+		audioAutoPlay('audio');
+
+		window.onload = function() {
+			audio.play();
+			//			alert('ok')
 		}
-		music.addEventListener('touchstart',function(){
-			
-//			console.log(123);
-			
-			if(audio.paused){
-				
+		music.addEventListener('touchstart', function() {
+
+			//			console.log(123);
+
+			if(audio.paused) {
+
 				audio.play();
-				
-			}else{
-				
+
+			} else {
+
 				audio.pause();
-				
+
 			}
 		})
 
-		
-//		console.log(audio)
-		$('.yuinyue img').on('tap',function(){
-			
+		//		console.log(audio)
+		$('.yuinyue img').on('tap', function() {
+
 			console.log(123);
-			
-			if(audio.paused){
+
+			if(audio.paused) {
 				audio.play()
-			}else{
+			} else {
 				audio.pause();
 			}
 		})
-//		$('.yinyue').click(function(){
-//			
-//			if(audio.paused){
-//				
-//				audio.play();
-//				
-//			}else{
-//				
-//				audio.pause();
-//				
-//			}
-//		})
+		//		$('.yinyue').click(function(){
+		//			
+		//			if(audio.paused){
+		//				
+		//				audio.play();
+		//				
+		//			}else{
+		//				
+		//				audio.pause();
+		//				
+		//			}
+		//		})
 	</script>
-
 
 </html>
