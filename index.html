@@ -17,9 +17,9 @@
 	<body>
 		<div class="page">
 			<div class="content">
-				<!--<div class="bg">
+				<div class="bg">
 					<img src="img/bg.png"/>
-				</div>-->
+				</div>
 				<audio id="audio" class="audio" autoplay="autoplay" preload loop="loop">
 					<source src="X-Ray Dog - Flight Of Dreams.mp3"></source>
 				</audio>  
@@ -136,7 +136,7 @@
  		var conHeight = $(window).height();//获取手机设备的高度
  	
  		console.log(conHeight);
- 		$('.page .content').height(conHeight);
+// 		$('.page .content').height(conHeight);
 // 		$('.page .content .bg img').height(conHeight);
  		
  		console.log($('.page .content .bg').height());
@@ -147,11 +147,15 @@
 		
 		window.onload = function(){
 			audio.play();
+//			alert('ok')
 		}
 		
+		if(audio.play){
+				alert('ok');
+		}
 		music.addEventListener('touchstart',function(){
 			
-			console.log(123);
+//			console.log(123);
 			
 			if(audio.paused){
 				
@@ -160,6 +164,7 @@
 			}else{
 				
 				audio.pause();
+				
 			}
 		})
 
